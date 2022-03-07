@@ -2030,44 +2030,43 @@ void main()
 	  {
 		printf("enter the string");
 		fflush(stdin);
-		char a[50];
-		char b[50];
-		gets(a);
-		for(i=0;a[i]!='\0';i++)
-		{
-			if((a[i]<='z'&&a[i]>='a')||(a[i]<='Z'&&a[i]>='A'))
-			{
-				b[i]=a[i];
-			}
-		    
-			
-		}
-		puts(b);
+		char a[100];
+            gets(a);
+           for(i=0;a[i]!=0;i++)
+            {
+          if(!((a[i]>=65 && a[i]<=90)||(a[i]>=97&& a[i]<=122)))
+          {
+                for(j=i;a[j]!='\0';j++)
+	          {
+	           	a[j]=a[j+1];
+		        }	
+              i--;
+	      }
+	     }
+	      printf("%s",a);
 		  break;
-	   }   
+	      
+        }
 		
 	case 88:
-	    { c=0,k=0;
-	     printf("enter the string");
-		 fflush(stdin);
-		 char a[50];
-		 char b[50];
-		 gets(a);
-		 gets(b);
-		 for(i=0;a[i]!='\0';i++)
-		 {
-		 	c++;
-		 }
-		  for(i=0;b[i]!='\0';i++)
-		 {
-		 	k++;
-		 }
-		 p=c+k;
-		 for(i=c;i<=p;i++)
-		 {
-		 	a[i]=b[i-c];
-		 }
-		 puts(a);
+	    {
+	    printf("enter the string");
+	    fflush(stdin);
+		char a[100];
+           gets(a);
+       for(i=0;a[i]!=0;i++)
+        {
+        if(a[i]==32)
+        {
+        for(j=i;a[j]!='\0';j++)
+	       {
+	        	a[j]=a[j+1];
+		  }	
+     i--;
+     	}
+	
+     }
+      printf("%s",a);
 		 break;
       	}
       	
@@ -2075,20 +2074,22 @@ void main()
 	  {
 	     printf("enter the string");
 	     fflush(stdin);
-	     char a[50];
-	     gets(a);
-	     k=strlen(a);
-	     for(i=0;i<=k;i++)
-	     {
-	     	if(a[i]=='(' || a[i]==')')
-	     	{ 
-	     	for(j=i;a[j]!='\0';j++)
-	     	{
-	     	 a[j]=a[j+1];	
-			 }
-			 }
-		 }
-		 puts(a);
+	     char a[100];
+           gets(a);
+         for(i=0;a[i]!=0;i++)
+         {
+            if(a[i]=='(' || a[i]==')')
+           { 
+               for(j=i;a[j]!='\0';j++)
+	       {
+	      	a[j]=a[j+1];
+		  }	
+              i--;
+	     }
+	
+          }
+       printf("%s",a);
+  
 	     break;
 	  }
 	case 90:
@@ -2112,18 +2113,23 @@ void main()
 	  	
 	case 91:
 		{
-		c=0;
-	   printf("enter the string");
-	   fflush(stdin);
-	   char a[50];
-	   gets(a);
-	   for(i=0;a[i]!='\0';i++)
-	   {
-	   	   c++;
-			  }
-		a[0]=toupper(a[0]);
-		a[c-1]=toupper(a[c-1]);
-		puts(a);
+		printf("enter the string\n");
+		fflush(stdin);
+       char a[100];
+        c=0;
+        gets(a);
+       for(i=0;a[i]!=0;i++)
+      {
+         c++;
+     if(a[i]==32)
+      {
+      a[i-1]=toupper(a[i-1]);
+	  a[i+1]=toupper(a[i+1]);
+	  }	
+       }
+    a[0]=toupper(a[0]);
+    a[c-1]=toupper(a[c-1]);
+   printf("%s",a);
 		break;
       }
       
@@ -2294,5 +2300,6 @@ void main()
 		  	  sum=sum*i;
 			  return sum;  
 			   }
+		
 			   
 // * incomplete solutions............			   
